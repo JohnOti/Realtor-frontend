@@ -1,28 +1,114 @@
 import React, { useState } from "react";
 
-export const Register = (props) => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
-    const [name, setName] = useState('');
+export const Register = ({onAddUser},props) => {
+    const [formData, setFormData] = useState({
+        email: '',
+        username: '',
+        phone_number: '',
+        location: '',
+        professional_status: '',
+    });
+
+    function handleChange(e) {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
-    }
+         
+        const newUser = {
+            ...formData
+        };
+
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newUser),
+        })
+                .then((res) => res.json())
+                .then((data) => {
+                    setFormData({
+                        email: '',
+                        username: '',
+                        phone_number: '',
+                        location: '',
+                        professional_status: '',
+                    });
+                    onAddUser(data);
+                });
+        };
 
     return (
-        <div className="auth-form-container">
-            <h2>Register</h2>
+      <div className="auth-form-container">
+        <h2>Register</h2>
         <form className="register-form" onSubmit={handleSubmit}>
-            <label htmlFor="name">full name</label>
-            <input value={name} onChange = {(e)  => setName(e.target.value)} name="name" id="name" placeholder="full name" />
-            <label htmlFor="email">email</label>
-            <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
-            <label htmlFor="password">password</label>
-            <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
-            <button type="submit">Log In</button>
+          <label htmlFor="username">Full name</label>
+          <input
+            value={formData.username}
+            onChange={handleChange}
+            name="username"
+            id="username"
+            placeholder="full name"
+          />
+          <label htmlFor="email">Email</label>
+          <input
+            value={formData.email}
+            onChange={handleChange}
+            type="email"
+            placeholder="youremail@gmail.com"
+            id="email"
+            name="email"
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            value={formData.password}
+            onChange={handleChange}
+            type="password"
+            placeholder="********"
+            id="password"
+            name="password"
+          />
+
+          <label htmlFor="phone_number">Phone No</label>
+          <input
+            value={formData.phone_number}
+            onChange={handleChange}
+            name="phone_number"
+            id="phone_number"
+            placeholder="07********"
+          />
+
+          <label htmlFor="location">Location</label>
+          <input
+            value={formData.location}
+            onChange={handleChange}
+            name="location"
+            id="location"
+            placeholder="Kilimani, Nairobi, Kenya"
+          />
+
+          <label htmlFor="professional_status">Professional Status</label>
+          <input
+            value={formData.professional_status}
+            onChange={handleChange}
+            name="professional_status"
+            id="professional_status"
+            placeholder="Employed, Unemployed, Student, etc"
+          />
+
+          <button type="submit">Log In</button>
         </form>
-        <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button>
-    </div>
-    )
+        <button
+          className="link-btn"
+          onClick={() => props.onFormSwitch("login")}
+        >
+          Already have an account? Login here.
+        </button>
+      </div>
+    );
 }
