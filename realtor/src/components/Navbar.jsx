@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import Logo from './img/rightmove.svg'
+// import Logo from './img/web_R_blk.jpg'
 
 const NavBar = () => { 
     return (
@@ -10,14 +10,14 @@ const NavBar = () => {
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
 
-          <Link to="/">
+          {/* <Link to="/">
             <img src={Logo} alt="Rightmove Logo" />
-          </Link>
+          </Link> */}
 
           {/* buttons */}
-          <div className="flex items-center">
-            <Link className="hover:text-violet-900 transition" to="">
-              Log out
+          <div className="flex items-center ">
+            <Link className="hover:text-violet-900 transition" to="/login">
+              Log In
             </Link>
             <Link
               className="bg-violet-700 hover:bg-violet-800 text-white px-4 py-3 rounded-lg transition"

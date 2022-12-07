@@ -1,6 +1,20 @@
 import React from "react";
 
-const Property = ({house}) => {
+const Property = ({ house }) => {
+
+  function handleDelete() {
+    fetch(`http://localhost:3000/houses/${house.id}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then(() => {
+        // remove the deleted house from the DOM
+        const deletedHouse = document.getElementById(house.id);
+        deletedHouse.remove();
+      });
+  }
+  
+
   return (
     <div className="bg-white shadow-1 p-5 rounded-lg rounded-tl-[90px] w-full max-w-[352px] mx-auto cursor-pointer hover:shadow-2xl transition">
       <img className="mb-8" src={house.img_url} alt="" />
