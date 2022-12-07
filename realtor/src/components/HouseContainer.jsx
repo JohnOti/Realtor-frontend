@@ -5,10 +5,11 @@ import Property from "./Property";
 function HouseContainer({ houses, onDeleteHouse }) {
      
     const houseCards = (
-        houses.map((house) => (
+      houses && houses.map((house) => (
             <Property house={house}
                 key={house.id}
                 onDeleteHouse={onDeleteHouse}
+            
             />
         ))
     );
