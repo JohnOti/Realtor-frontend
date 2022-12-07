@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 const Property = ({ house }) => {
 
   function handleDelete() {
@@ -30,19 +32,19 @@ const Property = ({ house }) => {
       <div className="flex gap-x-4 my-4">
         <div className="flex items-center text-gray-600 gap-1">
           <div className="text-[20px] rounded-full">
-            <BiBed />
+            {/* <BiBed /> */}
           </div>
           <div className="text-base">{house.bedrooms}</div>
         </div>
         <div className="flex items-center text-gray-600 gap-1">
           <div className="text-[20px] rounded-full">
-            <BiBath />
+            {/* <BiBath /> */}
           </div>
           <div className="text-base">{house.bathrooms}</div>
         </div>
         <div className="flex items-center text-gray-600 gap-1">
           <div className="text-[20px] rounded-full">
-            <BiArea />
+            {/* <BiArea /> */}
           </div>
           <div className="text-base">{house.surface}</div>
         </div>
