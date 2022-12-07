@@ -1,10 +1,14 @@
 import React from "react";
+import Banner from "./Banner";
+import HouseContainer from "./HouseContainer";
 
 const Home = () => {
     return (
-        <div>
-        <h1>Home</h1>
-        </div>
+      <div className="min-h-[1800px]">
+        <Banner />
+
+        <HouseContainer />
+      </div>
     );
 }
     
