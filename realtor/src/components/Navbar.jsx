@@ -2,19 +2,19 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-// import Logo from './img/web_R_blk.jpg'
+import Logo from './img/web_R_blk.jpg'
 
 const NavBar = () => { 
     return (
       <header className="py-6 mb-12 border-b">
         <div className="container mx-auto flex justify-between items-center">
-          {/* Logo */}
+          Logo
 
-          {/* <Link to="/">
+          <Link to="/">
             <img src={Logo} alt="Rightmove Logo" />
-          </Link> */}
+          </Link>
 
-          {/* buttons */}
+          buttons
           <div className="flex items-center ">
             <Link className="hover:text-violet-900 transition" to="/login">
               Log In
