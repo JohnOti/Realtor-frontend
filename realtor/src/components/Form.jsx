@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-export const Register = ({onAddUser},props) => {
+export const Form = ({onAddUser},props) => {
     const [formData, setFormData] = useState({
         name: '',
-        username: '',
-        phone_number: '',
+        value: '',
         location: '',
-        professional_status: '',
+        image_url: '',
+        description: '',
     });
 
     function handleChange(e) {
@@ -33,11 +33,11 @@ export const Register = ({onAddUser},props) => {
                 .then((res) => res.json())
                 .then((data) => {
                     setFormData({
-                        email: '',
-                        username: '',
-                        phone_number: '',
+                        name: '',
+                        value: '',
                         location: '',
-                        professional_status: '',
+                        image_url: '',
+                        description: '',
                     });
                     onAddUser(data);
                 });
@@ -45,70 +45,60 @@ export const Register = ({onAddUser},props) => {
 
     return (
       <div className="auth-form-container">
-        <h2>Register</h2>
+        <h2>Add a new house</h2>
         <form className="register-form" onSubmit={handleSubmit}>
-          <label htmlFor="username">Full name</label>
+          <label htmlFor="username">Name</label>
           <input
             value={formData.username}
             onChange={handleChange}
             name="username"
             id="username"
-            placeholder="full name"
+            placeholder="Estate name"
           />
-          <label htmlFor="email">Email</label>
+          <label htmlFor="value">Value</label>
           <input
-            value={formData.email}
+            value={formData.value}
             onChange={handleChange}
-            type="email"
-            placeholder="youremail@gmail.com"
-            id="email"
-            name="email"
+            type="value"
+            placeholder="house value"
+            id="value"
+            name="value"
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="location">Location</label>
           <input
             value={formData.password}
             onChange={handleChange}
-            type="password"
-            placeholder="****"
-            id="password"
-            name="password"
+            type="Location"
+            placeholder="location"
+            id="location"
+            name="location"
           />
 
-          <label htmlFor="phone_number">Phone No</label>
+          <label htmlFor="image_url">Image Url</label>
           <input
-            value={formData.phone_number}
+            value={formData.image_url}
             onChange={handleChange}
-            name="phone_number"
-            id="phone_number"
-            placeholder="07****"
+            name="image_url"
+            id="image_url"
+            placeholder="url"
           />
 
-          <label htmlFor="location">Location</label>
+          <label htmlFor="description">Description</label>
           <input
             value={formData.location}
             onChange={handleChange}
-            name="location"
-            id="location"
-            placeholder="Kilimani, Nairobi, Kenya"
+            name="description"
+            id="description"
+            placeholder="description"
           />
-
-          <label htmlFor="professional_status">Professional Status</label>
-          <input
-            value={formData.professional_status}
-            onChange={handleChange}
-            name="professional_status"
-            id="professional_status"
-            placeholder="Employed, Unemployed, Student, etc"
-          />
-
-          <button type="submit">Log In</button>
+          <button type="submit">Add</button>
         </form>
         <button
           className="link-btn"
           onClick={() => props.onFormSwitch("login")}
         >
-          Already have an account? Login here.
         </button>
       </div>
     );
 }
+export default Form;

@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HouseContainer from "./components/HouseContainer";
+import Form from "./components/Form";
 
 function App() {
 
@@ -45,6 +46,8 @@ function App() {
           <Route path="/login" element={<Login  />} />
           <Route path="/register" element={<Register onAddUser={handleAddUser} />} />
           <Route path="/houses" element={<HouseContainer onDeleteHouse={handleDeleteHouse} />} />
+          <Route path="/form" element={<Form onAddUser={handleAddUser} />} />
+
         </Routes>
 
       <Footer />
