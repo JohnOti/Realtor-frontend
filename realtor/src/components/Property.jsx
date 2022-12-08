@@ -1,5 +1,7 @@
 import React from "react";
 
+import { BiBed, BiBath, BiArea } from "react-icons/bi";
+
 const Property = ({ house }) => {
 
   function handleDelete() {

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-export const Register = ({onAddUser},props) => {
+import { useNavigate } from "react-router-dom";
+
+export const Register = ({ onAddUser }, props) => {
+  
+  const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: '',
         username: '',
@@ -23,7 +28,7 @@ export const Register = ({onAddUser},props) => {
             ...formData
         };
 
-        fetch('http://localhost:3000/users', {
+        fetch('/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,6 +46,8 @@ export const Register = ({onAddUser},props) => {
                     });
                     onAddUser(data);
                 });
+      
+        navigate('/');
         };
 
     return (
