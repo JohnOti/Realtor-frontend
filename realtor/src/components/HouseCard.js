@@ -14,10 +14,10 @@ function HouseCard({ house, onDeleteHouse, onUpdateHouse}) {
 
   function handleDeleteClick() {
     fetch(`/properties/${id}`, {
-      method: "UPDATE",
+      method: "PATCH",
     }).then((r) => {
       if (r.ok) {
-        onDeleteHouse(id);
+        onUpdateHouse(id);
       }
     });
     window.location.reload(true);
@@ -32,7 +32,7 @@ function HouseCard({ house, onDeleteHouse, onUpdateHouse}) {
 
       <button onClick={handleDeleteClick}>Delete</button>
       <br></br>
-      <button onClick={handleDeleteClick}>Update</button>
+      <button onClick={handleUpdateClick}>Update</button>
     </li>
   );
 }
