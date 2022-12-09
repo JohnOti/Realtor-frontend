@@ -1,6 +1,6 @@
 # Realtor-frontend
 Project Template: React/Rails API
-live link (https://realtor-frontend-ruddy.vercel.app/)
+live link (https://realtor-frontend-ruddy.vercel.app/) <br>
 Backend link (https://github.com/JohnOti/Realtor-backend)    
 
 Description
