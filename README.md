@@ -1,6 +1,7 @@
 # Realtor-frontend
 Project Template: React/Rails API
 live link (https://realtor-frontend-ruddy.vercel.app/)
+Backend link (https://github.com/JohnOti/Realtor-backend)    
 
 Description
 This project is scaffolded so that you can build a React frontend and Rails backend together, and easily deploy them to Render.
